@@ -55,7 +55,7 @@ app.get('/my_books/:id',(req,res) => {
     }else{
         res.status(500).json({error:"not a valid document id "})
     }
-app.post('./my_books', (req,res) => {
+app.post('/my_books', (req,res) => {
 const book = req.body
 
     db.collection('my_books')
@@ -85,7 +85,7 @@ app.delete('/my_books/:id',(req,res) => {
     }
 })
 
-app.patch('/my_books', (req,res) => {
+app.patch('/my_books/:id', (req,res) => {
     const updates =req.body
     if(ObjectId.isValid(req.params.id)){
         db.collection('my_books')
